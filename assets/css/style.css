@@ -1,11 +1,14 @@
 body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 
     height: 300px;
     width:100%;
     background-image: url(../images/logos.png);
     background-size: contain;
 }
 #game {
+    text-align: center;
+    line-height: 53px;
     background-image: url(../images/ballpark.jpg);
     color: yellow;
     border: solid green 5px;
@@ -16,6 +19,16 @@ body {
 
 }
 h2 {
-    font-size: 80px;
-    color: rgb(250, 175, 36);
+    margin-top: 50px;
+    font-size: 150px;
+    font: impact;
+    color: rgb(6, 102, 247);
+}
+h3 {font-family: "Brush Script MT";
+	font-size: 80px;
+	font-style: italic;
+	font-variant: normal;
+	font-weight: 700;
+    line-height: 53.9px;
+    color: rgb(252, 18, 10);
 }
