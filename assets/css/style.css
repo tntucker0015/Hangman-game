@@ -1,0 +1,21 @@
+body {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    height: 300px;
+    width:100%;
+    background-image: url(../images/logos.png);
+    background-size: contain;
+}
+#game {
+    background-image: url(../images/ballpark.jpg);
+    color: yellow;
+    border: solid green 5px;
+    height: 700px;
+    width: 50%;
+    margin: auto;
+    
+
+}
+h2 {
+    font-size: 80px;
+    color: rgb(250, 175, 36);
+}
