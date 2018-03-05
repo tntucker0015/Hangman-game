@@ -5,12 +5,11 @@
 // need to generate new word and add 1 to wins when word is guessed 
 
 // list of team mascots
-var teams= ["BREWERS", "ORIOLES", "REDS", "ANGELS", "PHILLIES", "DIAMONDBACKS", "REDSOX", "INDIANS", "DODGERS", "PIRATES", "CUBS","WHITESOX", "ROCKIES", "MARLINS", "PADRES", "TIGERS", "BLUEJAYS", "NATIONALS", "ASTROS", "ROYALS", "BRAVES", "MARINERS", "TWINS", "MTES", "YANKEES", "ATHLETICS", "GIANTS", "CARDINALS", "DEVILRAYS", " RANGERS"];
+var teams= ["BREWERS", "ORIOLES", "REDS", "ANGELS", "PHILLIES", "DIAMONDBACKS", "REDSOX", "INDIANS", "DODGERS", "PIRATES", "CUBS","WHITESOX", "ROCKIES", "MARLINS", "PADRES", "TIGERS", "BLUEJAYS", "NATIONALS", "ASTROS", "ROYALS", "BRAVES", "MARINERS", "TWINS", "METS", "YANKEES", "ATHLETICS", "GIANTS", "CARDINALS", "DEVILRAYS", " RANGERS"];
 var userGuess, targetWord, usedLetters, startGame; 
 var wins = 0;
 var losses = 0;
 var ties = 0;
-var placeholder =[];
 
 // generates random team name from list of teams and places it in targetWord
 function startGame() {
@@ -25,11 +24,15 @@ function startGame() {
     console.log(userguess);
     alert(userguess);
  }
-//  adding place holders for letters of targetWord
+ 
+ var placeholder = targetWord.replace(targetWord, "_");
+
+ console.log(placeholder);
+//   adding place holders for letters of targetWord
 // for (var i=0; i<targetWord.length; 1++) {
-        // placeholder.push("_");
-        // document.getElementById("placeholder").innerHTML = placeholder;
-        // console.log(placeholder);
+//         placeholder.push("_");
+//         document.getElementById("placeholder").innerHTML = placeholder;
+//         console.log(placeholder);
 // }
 
 // for replacing used letters
