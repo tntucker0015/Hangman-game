@@ -2,14 +2,14 @@ body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     height: 300px;
     width:100%;
-    background-image: url(../images/logos.png);
+    background-image: url(../media/logos.png);
     background-size: 200px 200px;
     background-repeat: repeat;
 }
 #game {
     text-align: center;
     line-height: 53px;
-    background-image: url(../images/ballpark.jpg);
+    background-image: url(../media/ballpark.jpg);
     color: white;
     border: solid rgb(6, 102, 247) 5px;
     height: 700px;

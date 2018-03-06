@@ -17,23 +17,31 @@ function startGame() {
     var count = targetWord.length;
     console.log(targetWord);
     console.log(count);
- }
+    // dipslays blank spaces for target word
+    var dispay = "";
+        for (var i=0; i<targetWord.length; i++) {
+            display = i + "_";
+            return display;
+        }
+            console.log(display);
+            alert(display);
+        
+}
+
 // capture user input, change to upper case and store it in userguess 
  document.onkeyup =function() {
     var userguess = String.fromCharCode(event.keyCode).toUpperCase();
     console.log(userguess);
     alert(userguess);
+    // used to print used letters
+    var usedLetters = [userguess];
+    usedLetters.push(userguess);
+    console.log(usedLetters);
  }
- 
- var placeholder = targetWord.replace(targetWord, "_");
 
- console.log(placeholder);
-//   adding place holders for letters of targetWord
-// for (var i=0; i<targetWord.length; 1++) {
-//         placeholder.push("_");
-//         document.getElementById("placeholder").innerHTML = placeholder;
-//         console.log(placeholder);
-// }
+
+//  console.log(placeholder);
+
 
 // for replacing used letters
     // document.getElementById(guessedLetters).innerHTML = "guessed lettere" + "userGuess"
