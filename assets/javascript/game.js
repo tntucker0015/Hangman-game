@@ -10,7 +10,6 @@ var userGuess, targetWord, usedLetters, startGame;
 var wins = 0;
 var losses = 0;
 var ties = 0;
-
 // generates random team name from list of teams and places it in targetWord
 function startGame() {
     var targetWord = teams[Math.floor(Math.random()*teams.length)];
@@ -25,29 +24,34 @@ function startGame() {
         }
             console.log(display);
             alert(display);
-        
+        // Allows user to end game by guessing team early
+            // function guessNow() {
+            //     var guessNow=promt("what is your Guess?");
+            //     if (guessNow == targetWord);
+            //             // then win game else loose game    
 }
 
 // capture user input, change to upper case and store it in userguess 
  document.onkeyup =function() {
     var userguess = String.fromCharCode(event.keyCode).toUpperCase();
     console.log(userguess);
-    alert(userguess);
+
     // used to print used letters
     var usedLetters = [userguess];
     usedLetters.push(userguess);
     console.log(usedLetters);
  }
 
+//To DO List:
+    // display "_" for letters of targetWord
+    // if statements -
+        /* if userguess == a letter in targetWord then;
+        change the "_" to that letter 
+        also, play hit sound, then check to see if there are any remaining
+        add letter to guessed letters "-"
+        
+        if  userguess /= letters in the targetWord then;
+        play strike sound, Display guess again, add letter to guessed letter, minus 1 from strikes left */
+    // loop game to end after nine strikes
+    // add guess now button //
 
-//  console.log(placeholder);
-
-
-// for replacing used letters
-    // document.getElementById(guessedLetters).innerHTML = "guessed lettere" + "userGuess"
-    
-    // var html = "<p>Press r, p, or s to start</p>" + "<p>Wins: " + wins + "</p>" + 
-    // "<p>Losses: " + losses + "</p>" + 
-    // "<p>Ties: " + ties + "</p>";
-
-    // document.querySelector('#game').innerHTML = html;
