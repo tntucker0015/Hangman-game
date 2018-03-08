@@ -8,12 +8,19 @@
 
 // list of team mascots
 var teams = ["BREWERS", "ORIOLES", "REDS", "ANGELS", "PHILLIES", "DIAMONDBACKS", "REDSOX", "INDIANS", "DODGERS", "PIRATES", "CUBS", "WHITESOX", "ROCKIES", "MARLINS", "PADRES", "TIGERS", "BLUEJAYS", "NATIONALS", "ASTROS", "ROYALS", "BRAVES", "MARINERS", "TWINS", "METS", "YANKEES", "ATHLETICS", "GIANTS", "CARDINALS", "DEVILRAYS", " RANGERS"];
-var userGuess, targetWord, usedLetters, startGame;
+
+var availLetters = ("ABCDEFGHIJKLMNOPQRSTUVWYXZ");
+var userGuess, targetWord, usedLetters, lettersMatched, startGame;
 var wins = 0;
 var losses = 0;
 var ties = 0;
 var usedLetters = [];
 var dashes = [];
+messages = {
+    win: "You Win!",
+    loose: "Game Over!",
+    guessed: "Foultip! You Already pick that letter, Try Again.",
+    validletter: "please Pick a letter between A-Z"};
 
 
 // generates random team name from list of teams and places it in targetWord
@@ -21,6 +28,7 @@ function startGame() {
     var targetWord = teams[Math.floor(Math.random() * teams.length)];
     var count = targetWord.length;
         console.log(targetWord);
+        console.log(count);
     //replace targetWord with dashes for each letter
     for (var i = 0; i < targetWord.length; i++) {
         dashes[i] = "__";
@@ -36,12 +44,16 @@ document.onkeyup = function (words) {
     usedLetters.push(userGuess);
     // alert(usedLetters);
     console.log(usedLetters);
-    // var store = targetWord.slpit("");
-    // console.log(store);
-    // // if (userGuess ===)
-
     document.querySelector('#x').innerHTML = usedLetters;
+    if (userGuess) {
+        // if guess is a valid letter? if so move on else erro
+        if (availLetters.indexOf(userGuess) > -1) {
+            // has it been guessed before
+            if ((lettersMatched && lettersMatched.indexof(userGuess) > -1) || (userGuess && userGuess.indexof(userGuess) > -1)) {
+            output.innerHTML = '"' + userGuess.toUpperCase() + '"' + messages.guessed;
+        }
+
+    }
+    }
 }
-
-
 
