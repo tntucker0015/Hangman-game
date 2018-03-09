@@ -9,7 +9,7 @@ body {
 #game {
     text-align: center;
     line-height: 53px;
-    /* background-image: url(../media/BaseballBat.jpg); */
+    background-image: url(../media/BaseballBat.jpg);
     background-color: white;
     background-repeat: no-repeat;
     background-size: cover;
@@ -23,11 +23,8 @@ body {
 #letters {
     display: inline-block;
     color: black;
+}
 
-correct-letter {
-    display: inline;
-}
-}
 h2 {
     margin-top: 50px;
     font-size: 150px;

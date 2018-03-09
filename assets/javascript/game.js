@@ -1,8 +1,11 @@
 // check guessed letters against available letters
 // display turns left
 // need to subtract from turns when wrong guess
-// need to generate new word and add 1 to wins when word is guessed 
+// need to add 1 to wins when word is guessed 
+//format start button
 // format guessNow button to allow user to guess the entire word at one time.
+// add images baseball coutner, win and loss
+// add sounds to strike and hit
 
 // list of team mascots
 var game = {
@@ -50,9 +53,16 @@ var game = {
 
     correctGuess: function (letter) {
         this.correctGuesses.push(letter);
+        // if(available.indexOf(letter) > -1) {
+        //     /* has it been guessed (missed or matched) already? if so, abandon & add notice */
+        //     if ((lettersMatched && lettersMatched.indexOf(guess) > -1) || (lettersGuessed && lettersGuessed.indexOf(guess) > -1)) {
+        //         output.innerHTML = '"' + guess.toUpperCase() + '"' + messages.guessed;
+        //         output.classList.add("warning");
+        //     }
+        // }
         console.log(letter, "is a match");
     },
-
+    
     incorrectGuess: function (letter) {
         console.log(letter, "is incorrect")
         this.incorrectGuesses.push(letter);
