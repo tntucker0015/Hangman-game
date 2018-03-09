@@ -9,7 +9,8 @@ body {
 #game {
     text-align: center;
     line-height: 53px;
-    background-image: url(../media/BaseballBat.jpg);
+    /* background-image: url(../media/BaseballBat.jpg); */
+    background-color: white;
     background-repeat: no-repeat;
     background-size: cover;
     /* background-color: white; */
@@ -18,6 +19,14 @@ body {
     height: 700px;
     width: 50%;
     margin: auto;
+}
+#letters {
+    display: inline-block;
+    color: black;
+
+correct-letter {
+    display: inline;
+}
 }
 h2 {
     margin-top: 50px;
