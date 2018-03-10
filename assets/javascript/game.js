@@ -1,6 +1,5 @@
 // check guessed letters against available letters
-// display turns left
-// need to subtract from turns when wrong guess
+// display turns left - for loop for counting down to 0
 // need to add 1 to wins when word is guessed 
 //format start button
 // format guessNow button to allow user to guess the entire word at one time.
@@ -15,20 +14,26 @@ var game = {
     available:["abcdefghijklmnopqrstuvwxyz"],
     lettersDiv: undefined,
     incorrectLettersDiv: undefined,
+    strikes: undefined,
     incorrectGuesses: [],
     correctGuesses: [],
     usedLetters: [],
-    startGame: function () {
+    guessesLeft: [9],
+
+    
+    startGame:  function () {
         //pick word
         // set word
         this.lettersDiv = document.getElementById('letters');
         this.incorrectLettersDiv = document.getElementById('incorrect-letters');
+        console.log(guessesLeft);
+        
        
         // gereates random word from list of teams
         var word = game.teams[Math.floor(Math.random() * game.teams.length)];;
         this.word = word;
         console.log(word);
-
+    
         this.render();
 
         // // capture user input, and store it in letter 
@@ -42,24 +47,23 @@ var game = {
         if (this.word.indexOf(letter) > -1) {
             this.correctGuess(letter);
             game.usedLetters.push(letter);
+           console.log(game.usedLetters); 
         } else {
             this.incorrectGuess(letter);
             game.usedLetters.push(letter);
+            // strikes left in the game
+            game.guessesLeft--;
+            console.log(game.guessesLeft);
         }
         this.render();
-        // wirtes used letters acroos the bottom of page
+        // wirtes used letters across the bottom of page
         document.querySelector('#x').innerHTML = game.usedLetters;   
     },
 
     correctGuess: function (letter) {
         this.correctGuesses.push(letter);
         // if(available.indexOf(letter) > -1) {
-        //     /* has it been guessed (missed or matched) already? if so, abandon & add notice */
-        //     if ((lettersMatched && lettersMatched.indexOf(guess) > -1) || (lettersGuessed && lettersGuessed.indexOf(guess) > -1)) {
-        //         output.innerHTML = '"' + guess.toUpperCase() + '"' + messages.guessed;
-        //         output.classList.add("warning");
-        //     }
-        // }
+
         console.log(letter, "is a match");
     },
     
@@ -81,7 +85,7 @@ var game = {
                 if (this.correctGuesses.indexOf(this.word[i]) > -1) {
                     html += "<div class='correct-letter'>" + this.word[i] + "<div>";
                 } else {
-                    html += "<div class'unguessed-letter'>_</div>";
+                    html += "<div class='unguessed-letter'>_</div>";
                 }
             }
         this.lettersDiv.innerHTML = html;
@@ -90,10 +94,9 @@ var game = {
     saveToLocalStorage: function () {
         localStorage.setItem('game', JSON.stringify(this));
     }
+
 }
-
 game.startGame();
-
 
 
 
