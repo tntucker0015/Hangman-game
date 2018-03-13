@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,33 +8,34 @@
     <link rel=stylesheet type="text/css" href="assets/css/style.css">
     <title>Hangman</title>
 </head>
+
 <body>
     <div id='display'></div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <div  class="container" id="game">
-    
+    <div class="container" id="game">
+        <h2>HANGMAN</h2>
+        <h3>
+            <!-- mlb logo in thee header -->
+            <img class="mlb" src="assets/media/MLB-Logo.jpeg" ; /> Mascots</h3>
+        <br />
+        <p>The Team is....</p>
 
-    <h2>HANGMAN</h2>
-    <h3><img class="mlb" src="assets/media/MLB-Logo.jpeg"; />    Mascots</h3>
-    <br />
-    <p>The Team is....</p>
-    
-    <div id="letters"></div>
-<div id="incorrect-letters"></div>
-    <p>Please type a letter.</p>
-    <br /> 
-    <div id="usedLetters">Used Letters!!!
+        <div id="letters"></div>
+        <div id="incorrect-letters"></div>
+        <p>Please type a letter.</p>
+        <br />
+        <div id="usedLetters">Used Letters!!!
+        </div>
+        <p id="x"></p>
+        <p id="guessesLeft"></p>
+
+        <p id="output" class="output"></p>
+        <!-- start button causes random word to gerenarte -->
+        <div class="button" id="start">START GAME</div>
+
+        <script src="assets/javascript/game.js"></script>
+
     </div>
-    <p id="x"></p>
-    <p id="guessesLeft"></p>
+</body>
 
-    <p id="output" class="output"></p>
-    <!-- start button causes random word to gerenarte -->
-        <div class="button" id ="start" >START GAME</div>
-   
-    <!-- for loosers "crying in baseball" -->
-<script src="assets/javascript/game.js" ></script>
- 
-</div>
-</body>    
 </html>
