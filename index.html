@@ -8,17 +8,20 @@
     <title>Hangman</title>
 </head>
 <body>
+    <div id='display'></div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <div  class="container" id="game">
     
 
     <h2>HANGMAN</h2>
     <h3><img class="mlb" src="assets/media/MLB-Logo.jpeg"; />    Mascots</h3>
+    <br />
     <p>The Team is....</p>
     
     <div id="letters"></div>
 <div id="incorrect-letters"></div>
     <p>Please type a letter.</p>
-    <br /> <br /><br /><br />
+    <br /> 
     <div id="usedLetters">Used Letters!!!
     </div>
     <p id="x"></p>
@@ -26,12 +29,9 @@
 
     <p id="output" class="output"></p>
     <!-- start button causes random word to gerenarte -->
-        <button class="button" onclick="startGame(startGame)">START GAME</button>
-    <!-- allows user to gues entire word -->
-        <button class="button" onclick="guessNow()">GUESS NOW</button>
-    
-    <!-- for loosers "crying in baseball" -->
+        <div class="button" id ="start" >START GAME</div>
    
+    <!-- for loosers "crying in baseball" -->
 <script src="assets/javascript/game.js" ></script>
  
 </div>

@@ -8,7 +8,7 @@ body {
 }
 #game {
     text-align: center;
-    line-height: 53px;
+    line-height: 48px;
     background-image: url(../media/BaseballBat.jpg);
     background-color: white;
     background-repeat: no-repeat;
@@ -23,6 +23,8 @@ body {
 #letters {
     display: inline-block;
     color: black;
+    padding:10px;
+    margin: 10px;
 }
 
 h2 {
@@ -46,22 +48,22 @@ h3 {font-family: "Brush Script MT";
     max-height: 60-x;
 }
 
-    .button {
+    #start {
         background-color: blue;
         border: solid white 2px;
         color: white;
-        padding: 15px 32px;
+        padding: 15px 25px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
         position: relative;
         bottom: 20px;
-        font-size: 16px;
+        font-size: 24px;
         margin: 4px 2px;
         cursor: pointer;
         transition: .5s;
 }
-.button:hover {
+#start:hover {
     background-color: white;
     color: blue;
     border: solid blue 5px;
@@ -81,5 +83,29 @@ p {
 
 #x {
     position: relative;
-    bottom: 100px;
+    bottom: 20px;
+    color: red;
+}
+
+#guessesLeft {
+    color:white;
+    position: relative;
+    bottom: 25px;
+}
+
+.correct-letter {
+    color: blue;
+    font-size: 40px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.unguessed-letter {
+    color: blue;
+    margin: 15px;
+    padding: 15px;
+}
+
+#usedLetters {
+    color: red;
 }
