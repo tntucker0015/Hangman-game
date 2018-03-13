@@ -110,11 +110,5 @@ $("#start").on("click", function () {
     game.startGame();
     window.onload = setup();
 
-    /* buttons */
-    // document.getElementById("restart").onclick = setup;
-
-    // /* reset letter to guess on click */
-    // guessInput.onclick = function () {
-    //     this.value = '';
-    // };
+  
 });
