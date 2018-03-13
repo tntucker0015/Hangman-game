@@ -24,7 +24,7 @@ var game = {
 
 
     startGame: function () {
-
+// starts game with click of button and generates new team to guess
         this.lettersDiv = document.getElementById('letters');
         this.incorrectLettersDiv = document.getElementById('incorrect-letters');
         var word = game.teams[Math.floor(Math.random() * game.teams.length)];
@@ -41,12 +41,11 @@ var game = {
             };
         };
     },
-
+// takes user guess and pushes it to correct or incorrect vars
     guess: function (letter) {
         if (this.word.indexOf(letter) > -1) {
             this.correctGuess(letter);
             game.usedLetters.push(letter);
-            // this.compare();
         } else {
             this.incorrectGuess(letter);
             game.usedLetters.push(letter);
@@ -68,12 +67,12 @@ var game = {
         this.losses++;
     },
 
-
+// plays hit sound for correct guess
     correctGuess: function (letter) {
         this.correctGuesses.push(letter);
         hitSound.play();
     },
-
+// plays strike sound for incorrect Guess and pushes guess to var to be displayed at bottom of screen
     incorrectGuess: function (letter) {
         this.incorrectGuesses.push(letter);
         strikeSound.play();
@@ -83,14 +82,7 @@ var game = {
         this.renderLettersDiv();
         this.incorrectLettersDiv.innerHTML = '';
     },
-// joins correctGuesses
-    compare: function(){
-        var joined = this.correctGuesses.join('');
-        console.log(joined);
-        console.log(this.word);
-        //     crowd.play();
-},
-
+//  prints  hidden team and correct guesses to the screen
     renderLettersDiv: function () {
         this.lettersDiv.innerHTML = '';
         var html = '';
