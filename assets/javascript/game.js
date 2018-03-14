@@ -54,6 +54,7 @@ var game = {
             if (game.guessesLeft === 0) {
                 this.youLose(letter);
                 this.render();
+                return false;
             }
         }
         this.render();
