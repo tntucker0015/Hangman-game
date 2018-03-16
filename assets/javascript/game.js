@@ -1,107 +1,99 @@
-// check guessed letters against available letters
-// for loop stopping game when guessses left reaches 0 or correct guesses matches target word
-// need to add 1 to wins when word is guessed 
-
+// global variables
 var hitSound = new Audio(src = 'assets/media/hit.mp3');
 var strikeSound = new Audio(src = 'assets/media/strike.mp3')
 var crowd = new Audio(src = 'assets/media/crowd.mp3');
 var lose = new Audio(src = "assets/media/alo-cry.wav");
+
 // list of team mascots
-var game = {
-    teams: ['brewers', 'orioles', 'reds', 'angels', 'phillies', 'diamondbacks', 'redsox', 'indians', 'dodgers', 'pirates', 'cubs', 'whitesox', 'rockies', 'marlins', 'padres', 'tigers', 'bluejays', 'nationals', 'astros', 'royals', 'braves', 'mariners', 'twins', 'mets', 'yankees', 'athletics', 'giants', 'cardinals', 'devilrays', 'rangers'],
-    word: '',
-    // list of available letters to use
-    available: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
-    lettersDiv: undefined,
-    incorrectLettersDiv: undefined,
-    strikes: undefined,
-    incorrectGuesses: [],
-    correctGuesses: [],
-    usedLetters: [],
-    guessesLeft: [9],
-    wins: 0,
-    losses: 0,
+var teams = ['brewers', 'orioles', 'reds', 'angels', 'phillies', 'diamondbacks', 'redsox', 'indians', 'dodgers', 'pirates', 'cubs', 'whitesox', 'rockies', 'marlins', 'padres', 'tigers', 'bluejays', 'nationals', 'astros', 'royals', 'braves', 'mariners', 'twins', 'mets', 'yankees', 'athletics', 'giants', 'cardinals', 'devilrays', 'rangers'];
+var word = '';
+var teamLetters = '';
+var blanks = 0;
+var incorrectGuesses = [];
+var correctGuesses = [];
+var guessesLeft = 9;
+var wins = 0;
+var losses = 0;
+var usedLetter = "";
 
+// starts new game with click of start button
+function startGame() {
+    guessesLeft = 9;
+    word = teams[Math.floor(Math.random() * teams.length)];
+    console.log(teams);
+    teamLetters = this.word.split("");
+    blanks = this.teamLetters.length;
+    incorrectGuesses = [];
+    usedLetter = [];
+    correctGuesses = [];
+    // this.lettersDiv = document.getElementById('letters');
+    // this.incorrectLettersDiv = document.getElementById('incorrect-letters');
+    console.log(word);
+    console.log(teamLetters);
 
-    startGame: function () {
-// starts game with click of button and generates new team to guess
-        this.lettersDiv = document.getElementById('letters');
-        this.incorrectLettersDiv = document.getElementById('incorrect-letters');
-        var word = game.teams[Math.floor(Math.random() * game.teams.length)];
-        this.word = word;
-        console.log(word);
-        this.render();
-
-        // // capture user input, and store it in letter 
-        document.onkeyup = function (letter) {
-            if (game.guessesLeft >=1) {
-                game.guess(letter.key);    
-        } else {
-            this.render();
-            };
-        };
-    },
-// takes user guess and pushes it to correct or incorrect vars
-    guess: function (letter) {
-        if (this.word.indexOf(letter) > -1) {
-            this.correctGuess(letter);
-            game.usedLetters.push(letter);
-        } else {
-            this.incorrectGuess(letter);
-            game.usedLetters.push(letter);
-            // strikes left in the game
-            this.guessesLeft--;
-            if (game.guessesLeft === 0) {
-                this.youLose(letter);
-                this.render();
-                return false;
+    for (var i = 0; i < this.blanks; i++) {
+        this.correctGuesses.push("_");
+    }
+    console.log(this.correctGuesses);
+    document.querySelector("#guessesLeft").innerHTML = ("You Have " + this.guessesLeft + " Strikes Left");
+    document.querySelector("#letters").innerHTML = this.correctGuesses.join("");
+    document.querySelector("#incorrect-letters").innerHTML = this.incorrectGuesses;
+};
+//     
+function letters(letter) {
+    
+    var letterPresent = false;
+    for (var i = 0; i < blanks; i++) {
+        if (word[i] === usedLetter) {
+            letterPresent = true;
+        }
+    }
+    if (letterPresent) {
+        for (var j = 0; j < blanks; j++) {
+            if (word[j] === usedLetter) {
+                correctGuesses[j] = usedLetter;
+                hitSound.play();
+                gameOver();
+             }
             }
         }
-        this.render();
-        // wirtes used letters across the bottom of page
-        document.querySelector('#x').innerHTML = game.usedLetters;
-        document.querySelector('#guessesLeft').innerHTML = ("You have " + game.guessesLeft + " STRIKES Left");
-    },
-// plays crying sound and adds one to losses var
-    youLose: function (letter) {
-        lose.play();
-        this.losses++;
-    },
-
-// plays hit sound for correct guess
-    correctGuess: function (letter) {
-        this.correctGuesses.push(letter);
-        hitSound.play();
-    },
-// plays strike sound for incorrect Guess and pushes guess to var to be displayed at bottom of screen
-    incorrectGuess: function (letter) {
-        this.incorrectGuesses.push(letter);
+    else {
+        incorrectGuesses.push(usedLetter);
+        guessesLeft--;
         strikeSound.play();
-    },
+        gameOver();
+    }
+};
 
-    render: function () {
-        this.renderLettersDiv();
-        this.incorrectLettersDiv.innerHTML = '';
-    },
-//  prints  hidden team and correct guesses to the screen
-    renderLettersDiv: function () {
-        this.lettersDiv.innerHTML = '';
-        var html = '';
-        for (var i = 0; i < this.word.length; i++) {
-            if (this.correctGuesses.indexOf(this.word[i]) > -1) {
-                html += "<span class='correct-letter'>" + this.word[i] + "</span>";
-            } else {
-                html += "<span class='unguessed-letter'>_</span>";
-            }
-        }
-        this.lettersDiv.innerHTML = html;
-    
-    },
-    
+function gameOver() {
+    // console.log("WINS: " + wins + "  |  Losses: " + losses);
+    document.querySelector("#guessesLeft").innerHTML = guessesLeft;
+    document.querySelector("#letters").innerHTML = correctGuesses;
+    document.querySelector("#incorrect-letters").innerHTML = incorrectGuesses;
+
+    if (teamLetters.toString() === correctGuesses.toString() || (wins > 0)) {
+        wins++;
+        console.log("wins" + wins);
+        crowd.play();
+        document.querySelector("#record").innerHTML = ("Wins:  " + wins + " || " + " Losses:  " + losses);
+        startGame();
+    } else if (guessesLeft === 0) {
+        losses++;
+        lose.play();
+        document.querySelector("#record").innerHTML = ("Wins:  " + wins + " || " + " Losses:  " + losses);
+        startGame();
+    }
 }
-$("#start").on("click", function () {
-    game.startGame();
-    window.onload = setup();
 
-  
+// start game on click of start button
+$("#start").on("click", function () {
+    startGame();
+    crowd.pause();
 });
+
+    // capture user input, and store it in letter 
+    document.onkeyup = function(letter) {
+        usedLetter = String.fromCharCode(event.keyCode).toLowerCase();
+        letters(usedLetter);
+        gameOver();
+};

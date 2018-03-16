@@ -22,7 +22,11 @@ body {
 }
 #letters {
     display: inline-block;
-    color: black;
+    color: white;
+    border: solid 3px white;
+    background-color: blue;
+    letter-spacing: 30px;
+    font-size: 24px;
     padding:10px;
     margin: 10px;
 }
