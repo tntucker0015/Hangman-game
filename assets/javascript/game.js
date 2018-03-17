@@ -38,6 +38,7 @@ function startGame() {
     document.querySelector("#guessesLeft").innerHTML = ("You Have " + this.guessesLeft + " Strikes Left");
     document.querySelector("#letters").innerHTML = this.correctGuesses.join("");
     document.querySelector("#incorrect-letters").innerHTML = this.incorrectGuesses;
+    letters();
 };
 //     
 function letters(letter) {
@@ -64,7 +65,6 @@ function letters(letter) {
         gameOver();
     }
 };
-
 function gameOver() {
     // console.log("WINS: " + wins + "  |  Losses: " + losses);
     document.querySelector("#guessesLeft").innerHTML = guessesLeft;
