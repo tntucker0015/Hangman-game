@@ -23,22 +23,19 @@ function startGame() {
     console.log(teams);
     teamLetters = this.word.split("");
     blanks = this.teamLetters.length;
+    // resets incorrectGuesses and correctGuesses to start a new game
     incorrectGuesses = [];
     usedLetter = [];
     correctGuesses = [];
-    // this.lettersDiv = document.getElementById('letters');
-    // this.incorrectLettersDiv = document.getElementById('incorrect-letters');
-    console.log(word);
-    console.log(teamLetters);
 
     for (var i = 0; i < this.blanks; i++) {
         this.correctGuesses.push("_");
+        
     }
     console.log(this.correctGuesses);
     document.querySelector("#guessesLeft").innerHTML = ("You Have " + this.guessesLeft + " Strikes Left");
-    document.querySelector("#letters").innerHTML = this.correctGuesses.join("");
+    document.querySelector("#letters").innerHTML = this.correctGuesses.("");
     document.querySelector("#incorrect-letters").innerHTML = this.incorrectGuesses;
-    letters();
 };
 //     
 function letters(letter) {
