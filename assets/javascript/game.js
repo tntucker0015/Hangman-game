@@ -34,7 +34,7 @@ function startGame() {
     }
     console.log(this.correctGuesses);
     document.querySelector("#guessesLeft").innerHTML = ("You Have " + this.guessesLeft + " Strikes Left");
-    document.querySelector("#letters").innerHTML = this.correctGuesses.("");
+    document.querySelector("#letters").innerHTML = this.correctGuesses.join("");
     document.querySelector("#incorrect-letters").innerHTML = this.incorrectGuesses;
 };
 //     
